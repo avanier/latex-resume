@@ -11,15 +11,16 @@
 % Makes resume-specific commands available.
 \usepackage{resume}
 
-
-
+% Extra packages
+\usepackage{graphicx}
+\usepackage{fontawesome}
+\usepackage{enumitem}
 
 \begin{document}  % begin the content of the document
 \sloppy  % this to relax whitespacing in favour of straight margins
 
-
 % title on top of the document
-\maintitle{Alexis Vanier}{}{Last update on \today}
+\maintitle{Alexis Vanier}{}{Last updated on \today}
 
 \nobreakvspace{0.3em}  % add some page break averse vertical spacing
 
@@ -28,56 +29,289 @@
 % \sbull is a spaced bullet
 % \href well..
 % \\ breaks the line into a new paragraph
-\noindent\href{mailto:alexis.at.amonoid.io}{alexis\mbox{}@\mbox{}amonoid.io}\sbull
-\textsmaller{+}1 (514) 730-2459\sbull
-\href{https://github.com/avanier}{github.com/avanier}\sbull
-\href{https://www.linkedin.com/in/alexis-vanier-94705463}{linkedin.com/in/alexis-vanier-94705463}
+\noindent\getenv[\EMAIL]{EMAIL}\EMAIL\sbull
+\getenv[\PHONE]{PHONE}\PHONE \sbull Ottawa, Canada
 \\
-Montréal\sbull
-Canada
+\href{https://www.linkedin.com/in/alexis-vanier-94705463}{linkedin.com/in/alexis-vanier-94705463}\sbull
+\href{https://github.com/avanier}{github.com/avanier}\sbull
+\href{https://git.sr.ht/~avanier}{git.sr.ht/{\textasciitilde}avanier}
 
 \spacedhrule{0.9em}{-0.4em}  % a horizontal line with some vertical spacing before and after
+
+%%%%
+% SECTION: Summary
+%%%%
 
 \roottitle{Summary}  % a root section title
 
 \vspace{-0.5em}  % some vertical spacing
 \begin{multicols}{2}  % open a multicolumn environment
-\noindent \emph{A quirky and dynamic tech explorer who draws from his eclectic background and his desire to learn from and about others.}
-\\
+  I'm driven by a need to understand people, how they work, and how they relate to
+  their tools. This apprach allows you to see how processes are just a way to
+  iterate on how people come together around tools, goals, and constraints.\\
 
-I'm driven by a need to understand people, how they work, and how they relate to their tools. This apprach allows you to see how processes are just a way to iterate on how people come together around tools, goals and constraints.
+  I enjoy sharing the discoveries I make, finding the wisdom to be found in
+  defeats, how unexpected parts of others complete a picture too big to see.\\
 
-I enjoy sharing the discoveries I make, finding the wisdom to be found in defeats, how unexpected parts of others complete a picture too big to see.
-
-I thrive in challenges, both mundane and spectacular.
+  I thrive in Challenges and highlights both mundane and spectacular.\\
 \end{multicols}
-
 
 \spacedhrule{0em}{0em}
 
+%%%%
+% SECTION: Experience
+%%%%
+
 \roottitle{Experience}
 
-\vspace{0.5em}  % some vertical spacing
+\vspace{0.5em}
+\headedsection
+{\href{https://www.samsungads.com}{Samsung Ads}}
+{\textsc{Remote \sbull Ottawa, Canada}}
+{%
+  \headedsubsection
+  {Staff Developer -- SRE}
+  {Dec \apo23 -- Jul \apo24}
+  {
+    \bodytext{
+      Samsung Ads provides customers with \acr{Digital Advertisement}
+      and \acr{Digital Out of Home Advertisement} solutions. As a Staff SRE
+      I participated as an individual contributor in the development of our
+      developer platform and worked to evangelize best practices and patterns.
+      One of my most impactful contributions was the production of a series of
+      videos promoting the use of our developer platform and lifting the
+      curtain on some of our less accessible tools and services with the
+      target audience of some 40 \acr{SRE}s and 300 developers across the
+      organization.
+    }
+  }
+  \vspace{0.5em}
+  \headedsubsection {Challenges and highlights} {} {
+    \bodytext{
+      \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+        \item Provided a self-hosted Terraform Enterprise deployment with comprehensive OIDC identities
+              allowing granular control of secrets and resources for developers
+        \item Provided Terraform Modules to abstract the complexity of permissions management
+              and resource creation for developers
+        \item Maintained a self-hosted GitHub Actions runner infrastructure and
+              and associated tooling
+        \item Provided GitHub Actions Reusable Workflows to simplify the deployment of services
+        \item Built and offered a system that allowed developers to declare when they perform a deployment,
+              making the information available to all connected systems and contributing to providing
+              reliable \href{https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance}{DORA metrics}
+      \end{itemize}
+    }
+  }
+  \vspace{0.5em}
+  \headedsubsection {Technologies \sneakytext{buzzword salad}} {} {
+    \bodytext{
+      \vspace{-1em}  % I think multicols adds an unwanted linebreak
+      \begin{multicols}{3}
+        \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+          \item AWS
+          \item GitHub Actions
+          \item Golang
+          \item Grafana
+          \item Hashicorp Vault
+          \item Helm
+          \item JFrog Artifactory
+          \item Kubernetes / Rancher
+          \item OIDC / SAML
+          \item Okta
+          \item Terraform Enterprise
+          \item Terraform Modules
+        \end{itemize}
+      \end{multicols}
+    }
+  }
+}
+
+\vspace{1em}
+\headedsection
+  {\href{https://www.samsungads.com}{Samsung Ads}}
+  {\textsc{Remote \sbull Ottawa, Canada}} {%
+  \headedsubsection
+    {Product Owner}
+    {Jul \apo21 -- Dec \apo23}
+    {
+      \bodytext{\
+        Samsung Ads provides customers with \acr{Digital Advertisement}
+        and \acr{Digital Out of Home Advertisement} solutions. As \acr{Product Owner}
+        I contributed to transitioning a group of SREs into a cohesive set of
+        teams aligned to deliver our internal software development and runtime
+        platform. These teams offered runtime services, developer productivity tooling,
+        and observability services to the organization. Our target audience
+        included some 300 developers and another 400 users spread across the
+        world.
+      }
+    }
+  \vspace{0.5em}
+  \headedsubsection {Challenges and highlights} {} {
+    \bodytext{
+      \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+        \item Contributed in drafting the team mandates for our new teams,
+              ensuring that groups had clear goals and sufficient autonomy to
+              pursue the company's objectives
+        \item Traveled the world to mint two new teams, setting the standard
+              for worflows and practices. Made sure that while teams were
+              autonomous they had solid lasting bridges with other platform teams
+        \item Ensured we had a documented, automated, and well understood
+              communication strategy, be it for announcing new features, changes
+              in the platform, soliciting feedback from our users, and providing
+              clear incident communication to our tenants
+        \item Maintained a tight communication loop with stakeholders to ensure
+              that our offering kept aligned with the company's objectives and
+              downstream teams were well supported in their mission
+      \end{itemize}
+    }
+  }
+  \vspace{0.5em}
+  \headedsubsection {Technologies \sneakytext{buzzword salad}} {} {
+    \bodytext{
+      \vspace{-1em}  % I think multicols adds an unwanted linebreak
+      \begin{multicols}{3}
+        \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+          \item AWS
+          \item Bare Metal Kubernetes
+          \item Confleunce
+          \item GitHub Actions
+          \item Golang
+          \item Grafana
+          \item Hashicorp Vault
+          \item Helm
+          \item JFrog Artifactory
+          \item Jira \textsubscript{(… like a lot of it)}
+          \item Kubernetes / Rancher
+          \item OIDC / SAML
+          \item Okta
+          \item PagerDuty
+          \item Prometheus / \mbox{VictoriaMetrics}
+          \item Terraform Enterprise
+        \end{itemize}
+      \end{multicols}
+    }
+  }
+}
+
+\vspace{1em}
+\headedsection
+  {\href{https://www.samsungads.com}{Samsung Ads}}
+  {\textsc{Montreal, Canada}} {%
+  \headedsubsection
+    {SRE}
+    {Dec \apo17 -- Jul \apo21}
+    {
+      \bodytext{
+        Samsung Ads provides customers with \acr{Digital Advertisement}
+        and \acr{Digital Out of Home Advertisement} solutions. As a post-acquisition
+        business we took Samsung's existing ad platform and scaled it to a multi-million
+        dollar world-spanning business.
+      }
+    }
+  \vspace{0.5em}
+  \headedsubsection {Challenges and highlights} {} {
+    \bodytext{
+      \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+        \item Migrated traditional unique bare-metal server infrastructure to a
+              bare-metal Kubernetes environment
+        \item Migrated from a StatsD-based metric environment to a Prometheus-based
+              metric environment capable of measuring millions of requests per second
+              at high cardinality
+        \item Established the use of CI / CD pipelines for all services
+        \item Migrated a bespoke high-risk configuration management system that
+              serviced millions hardware devices across clouds without downtime
+        \item Grew all of our internal systems to scale from 30 to 300 employees
+              within the span of three years
+        \item Implemented the use of SSO with MFA for all services
+        \item Participated in hiring for over 35 employees in the Montreal office
+              with and achieved over 90\% retention rate over 5 years
+        \item Participated in the development of our incident response,
+              escalation, and review process
+      \end{itemize}
+    }
+  }
+  \vspace{0.5em}
+  \headedsubsection {Technologies \sneakytext{buzzword salad}} {} {
+    \bodytext{
+      \vspace{-1em}  % I think multicols adds an unwanted linebreak
+      \begin{multicols}{3}
+        \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+          \item \href{https://concourse.ci/}{Concourse CI}
+          \item Bare Metal Computing
+          \item Docker / Kubernetes
+          \item Erlang
+          \item Grafana
+          \item Keycloak
+          \item Prometheus / VictoriaMetrics
+          \item SaltStack
+          \item StatsD / Graphite / IronDB
+        \end{itemize}
+      \end{multicols}
+    }
+  }
+}
+
+\vspace{1em}
 \headedsection
   {\href{https://www.lightspeedhq.com}{Lightspeed}}
   {\textsc{Montréal, Canada}} {%
   \headedsubsection
     {DevOps Developer}
-    {Aug \apo16 -- present}
-    {\bodytext{Lightspeed provides solutions to retailers and restaurants with \acr{Point of Sale} and \acr{eCommerce} solutions, both in the cloud and on-premises. Lightspeed deals with rapid growth, reacts switfly to changes in market, and pounces on opportunities.}}
+    {Aug \apo16 -- 17}
+    {
+      \bodytext{
+        Lightspeed provides solutions to retailers and restaurants with
+        \acr{Point of Sale} and \acr{eCommerce} solutions, both in the
+        cloud and on-premises. Lightspeed deals with rapid growth, reacts
+        switfly to changes in market, and pounces on opportunities.
+        }
+    }
+    \vspace{0.5em}
+    \headedsubsection {Challenges and highlights} {} {
+      \bodytext{
+        \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+          \item Participate with backend development teams designing new services
+          \item Deployed and integrated a \acr{CI/CD} pipeline system with 
+                \href{https://concourse.ci/}{Concourse} across multiple teams and
+                products
+          \item Evangelized teams to the to the use of \acr{Docker} and \acr{CI/CD}
+                through presentation, workshops, and coaching
+          \item Uniformize DevOps practices and infrastructure tools across different products
+          \item Transition services running in full VMs under Chef management to Kubernetes
+          \item Participate in auditing and hardening infrastructure and services to
+                achieve \href{https://www.pcisecuritystandards.org/standards/, PCI}
+                compliance
+          \item Contributed to the development of our incident response and
+                escalation process against both benign and malign threats
+        \end{itemize}
+      }
+    }
   \vspace{0.5em}
-  \headedsubsection {Challenges} {} {
+  \headedsubsection {Technologies \sneakytext{buzzword salad}} {} {
     \bodytext{
-      \bull Participate with backend development teams designing new services\\
-      \bull Deployed and integrated a \acr{CI/CD} pipeline system with \href{https://concourse.ci/}{Concourse} across multiple teams and products\\
-      \bull Evangelized teams to the to the use of \acr{Docker} and \acr{CI/CD} through presentation, workshops and coaching\\
-      \bull Uniformize DevOps practices and infrastructure tools across different products\\
-      \bull Transition services running in full VMs under Chef management to Kubernetes\\
-      \bull Participate in auditing and hardening infrastructure and services within a payments driven environment}
-  }
-  \vspace{0.5em}
-  \headedsubsection {Technologies} {} {
-    \bodytext{\acr{AWS, GCE, GKE, Kubernetes, Concourse, Chef, Ruby, PHP, Git, Jira, SparkleFormation, Terraform, Github, OneLogin, Golang, Java, DataDog, NewRelic, ElasticSearch, Kibana, MySQL, Memcached, Redis, RDS, ElasticBeanstalk, Vault, CentOS, Ubuntu, Docker, Rundeck, Samson}}
+      \vspace{-1em}  % I think multicols adds an unwanted linebreak
+      \begin{multicols}{3}
+        \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+          \item AWS
+          \item GCE / GKE
+          \item Kubernetes
+          \item Concourse CI
+          \item Chef
+          \item Ruby
+          \item PHP
+          \item Jira
+          \item SparkleFormation
+          \item Terraform
+          \item OneLogin
+          \item Golang
+          \item Java
+          \item DataDog
+          \item NewRelic
+          \item ElasticSearch / Kibana
+          \item Hashicorp Vault
+        \end{itemize}
+      \end{multicols}
+    }
   }
 }
 
@@ -86,91 +320,93 @@ I thrive in challenges, both mundane and spectacular.
   {\href{https://www.nuglif.com}{Nuglif}}
   {\textsc{Montréal, Canada}} {%
   \headedsubsection
-    {Systems Administrator}
+    {System Administrator}
     {Nov \apo15 -- Aug \apo16}
-    {\bodytext{Nuglif offers the daily news industry a powerful platform adapted to the needs of today's readers, editors, and advertisers. I was tasked with supporting several backend development teams and ensuring on-call duty on the publication and advertisement services for two newspapers.}}
-    \vspace{0.5em}
-    \headedsubsection {Challenges} {} {
-      \bodytext{
-        \bull Participated with backend development teams designing and implementing new services\\
-        \bull Participated in the continuous improvement of the escalation process}
+    {\bodytext{
+      Nuglif offers the daily news industry a powerful platform adapted to the
+      needs of today's readers, editors, and advertisers. I was tasked with
+      supporting several backend development teams and ensuring on-call duty
+      on the publication and advertisement services for two newspapers.
+      }
     }
     \vspace{0.5em}
-    \headedsubsection {Technologies} {} {
+    \headedsubsection {Challenges and highlights} {} {
+      \bodytext{
+        \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+          \item Participated with backend development teams designing and implementing new services
+          \item Participated in the continuous improvement of the escalation process
+        \end{itemize}
+      }
+    }
+    \vspace{0.5em}
+    \headedsubsection {Technologies \sneakytext{buzzword salad}} {} {
       \bodytext{\acr{VMWare, Chef, Ruby, PHP, Git, Bitbucket, Fisheye, Crucible, Jira, Gitolite, LDAP, Golang, Bitbucket, Sensu, RabbitMQ, Statsd, MySQL, CentOS, Ubuntu, SLES, Jenkins, GlusterFS}}
     }
   }
 
-\pagebreak
-\headedsection
-  {\href{https://www.lapresse.ca}{La Presse}}
-  {\textsc{Montréal, Canada}} {%
-  \headedsubsection
-  {Infrastructure Advisor}
-  {Jun \apo13 -- Nov \apo15}
-  {\bodytext{La Presse is the second greatest circulation French language newspaper in North America. My mandate ranged from integrating a live production video studio, \acr{IT} services automation and providing custom workflow solutions for a newsroom embracing the digital age.}}
-  \vspace{0.5em}
-  \headedsubsection {Challenges} {} {
-    \bodytext{
-      \bull Developed and deployed a custom photo asset management solution, encompassing ingestion, approval, metadata editing, archival, and publication, in one of the largest french language newsrooms in North America \ \ \ \emph{\small{(Ask me about it! It's one of my favourite projects!)}}\\
-      \bull Completed the integration for a live video production, multi camera, video studio\\
-      \bull Provided expertise for the production, and distribution of audiovisual material on mobile and web platforms\\
-      \bull Deployed edit suites for use by journalists and support staff\\
-      \bull Deployed a custom multicast video system allowing \acr{24/7} monitoring of news networks for the news desk team\\
-      \bull Participated in the production of several special events such as national and provincial elections, sports games, and other exceptional news events}
-  }
-  \vspace{0.5em}
-  \headedsubsection {Technologies} {} {
-    \bodytext{\acr{VMWare, Chef, Ruby, Git, SANs, Quantum StorNext, Bare Metal Computing, NodeJS, AngularJS, CSS, Javascript, LDAP, Bitbucket, Sensu, CentOS, Baseband Video, AES Formats, FFMPEG, Subtitling, Apple HLS, MPEG-DASH, BS.1770, CALM, ATSC/A85, and a very long list of codecs for broadcast, editing and web delivery}}
-  }
-}
-
-\vspace{1em}
-\headedsection
-{\emph{Freelance}}
-{\textsc{Multiple Locations}} {%
-\headedsubsection
-{Colourist / Digital Acquisition Supervisor}
-{Jan \apo05 -- Aug \apo16}
-{\bodytext{As a film and commercial professional, I advised productions on how to best capture, edit, post-process and finish digitally acquired motion pictures. The scope of my expertise covered both the qualitative and quantitative, the technical, economical, practical, logistical, and creative of any given project. Often productions would seek my services as a colourist during the finishing phase.}}
 \vspace{0.5em}
-\headedsubsection {Challenges} {} {
-  \bodytext{
-    \bull Completed more than 60 music videos, commercials, short films, feature films, web series, reality series, experimental films, and corporate videos\\
-    \bull Developed an expertise at designing workflows from the camera to the screen, spanning humans and technologies \emph{\small{(\ldots and budgets)}}\\
-    \bull Contributed to an Oscar winning short film, and other award-winning productions}
-}}
+% \inlineheadsection
+% {Natural languages:}
+% {French \emph{(mother tongue)}, English \emph{(full professional proficiency)}.}
 
-\begin{center}
-  \emph{\small Please refer to \href{https://www.linkedin.com/in/alexis-vanier-94705463/}{my LinkedIn profile} for a more complete list of work experience along with recommendations.}
-\end{center}
-
+%%%%
+% SECTION: Natural Languages
+%%%%
 
 \spacedhrule{-0.2em}{-0.4em}
+\roottitle{Natural Languages}
 
-\roottitle{Skills}
+\bodytext{
+  \begin{multicols}{2}
+    \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+      \item French \emph{(mother tongue)}
+      \item English \emph{(native-level professional proficiency)}
+    \end{itemize}
+  \end{multicols}
+}
 
-\inlineheadsection  % special section that has an inline header with a 'hanging' paragraph
-  {Technical expertise:}
-  {Big fan of Agile methodologies, continuous delivery and functional programming. Enjoys writing \acr{Erlang}, \acr{Elixir}. Strong preference for declarative systems like PlantUML, GraphViz, Markdown, and \LaTeX. Likes to drill down to root causes of human behaviours in technology, likes to analyze decision processes. Strong interest for picking apart data models, and studying how they are accessed. Jira is an automation language for humans. I know Regular Expressions \emph{\small{(\ldots but I'm not good at lookarounds)}}. Strong Linux administration skills, not afraid to dig down to the Kernel, and has fairly deep knowledge of Linux as user stations. I run \acr{Ceph} at home. Tinkered with \acr{Lisp}, \acr{Scheme}, \acr{Haskell}. Fluent user of GPG / PGP. Automate All the Things, everything as code, version control All the Things.}
+\spacedhrule{-0.2em}{-0.4em}
+\roottitle{Made-up Languages}
 
-\vspace{0.5em}
-\inlineheadsection
-  {Natural languages:}
-  {French \emph{(mother tongue)}, English \emph{(full professional proficiency)}, Japanese \emph{(beginner)}.}
+\bodytext{
+  \begin{multicols}{3}
+    \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+      \item Bash \emph{(Advanced)}
+      \item Elixir \emph{(Beginner)}
+      \item Erlang \emph{(Beginner)}
+      \item Golang \emph{(Intermediate)}
+      \item Javascript \emph{(Intermediate)}
+      \item LaTeX \emph{(Beginner)}
+      \item Ruby \emph{(Advanced)}
+      \item Rust \emph{(Beginner)}
+    \end{itemize}
+  \end{multicols}
+}
 
+%%%%
+% SECTION: Fun Facts
+%%%%
 
-\spacedhrule{1.6em}{-0.4em}
+\spacedhrule{-0.2em}{-0.4em}
+\roottitle{Fun Facts}
 
-\roottitle{Interests}
+\bodytext{
+  \begin{itemize}[left=0pt, labelsep=0.5em, itemindent=0pt, listparindent=\parindent, nosep]
+    \item I run my home network on a 40Gib/s fabric and advertise my homelab services using BGP.
+    \item I sail a 26ft sailboat on the Ottawa River and it's featured on \href{https://en.wikipedia.org/wiki/Grampian_26\%23/media/File\%3AGrampian_26_sailboat_Slowpoke_0318.jpg}{Wikipedia}
+    \item IT is my second career. I worked in the film industry for 10 years and have a few awards to show for it including an Oscar.
+  \end{itemize}
+}
 
-\inlineheadsection
-  {Non-exhaustive and in no particular order:}
-  {art, functional programming, music, photography, sailing, Scotch, security, and \acr{UX}-design.}
-
-\vspace{1em}
-\begin{center}
-  \emph{\small You can read the source for my resume \href{https://github.com/avanier/latex-resume/blob/master/alexis-vanier-resume.tex}{on GitHub}}.
-\end{center}
+\vspace{\fill} % Push the footer to the bottom
+\center{
+  \emph{
+    \small{
+      You can read the source for this resume \href{https://github.com/avanier/latex-resume/blob/master/alexis-vanier-resume.tex}{on GitHub}
+      \\
+      Made with \textcolor{red}{\faHeart} using \LaTeX
+    }
+  }
+}
 
 \end{document}

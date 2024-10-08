@@ -43,23 +43,30 @@
 
 % For multiple column text.
 \usepackage{multicol}
+\hyphenpenalty=750
 
 % For \textscale, which I prefer over \sc (small caps).
 % See the \acr command definition below.
 \usepackage{relsize}
 
 % Setup the hyperrefs witht he right color.
-\usepackage{hyperref}  
+\usepackage[luatex,
+  pdfauthor={Alexis Vanier},
+  pdftitle={Alexis Vanier - Resume},
+  pdfsubject={Resume},
+  pdfkeywords={Resume, Sysadmin, DevOps, SRE},
+  pdfproducer={LaTeX with hyperref},
+  pdfcreator={luatex}]{hyperref}
 \usepackage{xcolor}
 \definecolor{dark-blue}{rgb}{0.15,0.15,0.4}
 \hypersetup{colorlinks,linkcolor={dark-blue},citecolor={dark-blue},urlcolor={dark-blue}}
 
 % XeTeX specific stuff with fall-back.
-\usepackage{ifxetex}
-\ifxetex
+% \usepackage{ifxetex}
+% \ifxetex
 
-  \usepackage{fontspec}
-  
+%   \usepackage{fontspec}
+
   % the main font, with all features on
   % \setmainfont
   %   [ ExternalLocation ,
@@ -84,12 +91,12 @@
   % Linux Libertine font (it has nice lignatures).
   % Make sure to have the `ttf-linux-libertine` package installed on Ubuntu.
 %  \setmainfont[Mapping=tex-text, Numbers=OldStyle, Ligatures={Common,Contextual}]{Linux Libertine O}
- \setmainfont[Mapping=tex-text, Numbers=OldStyle, Ligatures={Common,Contextual}]{Roboto}
+%  \setmainfont[Mapping=tex-text, Numbers=OldStyle, Ligatures={Common,Contextual}]{Roboto}
 
-  % needs an experimental and impossible to find package for xetex
-  \usepackage[protrusion]{microtype}
+%   % needs an experimental and impossible to find package for xetex
+%   \usepackage[protrusion]{microtype}
 
-\else
+% \else
 
   % this case we likely use the `pdftex` back-end
   % therefor we lack:
@@ -101,7 +108,11 @@
   \usepackage[T1]{fontenc}
   \usepackage[expansion,protrusion]{microtype}
 
-\fi
+  \defaultfontfeatures{Scale = MatchLowercase, Ligatures=TeX}
+  \setmainfont{Roboto}[Scale=1.0]
+  \setmonofont{Roboto Mono} % Or NewCMMono, CMU Typewriter Text, etc.
+
+% \fi
 
 
 
@@ -177,3 +188,17 @@
 % CPP command (found it in some corner of the internet and decided to use it)
 \newcommand{\CPP}{C\nolinebreak[4]\hspace{-.04em}\raisebox{.20ex}{\footnotesize\bf++}}
 
+% Make white superscript text for hidden snark
+\newcommand{\sneakytext}[1]{\textsuperscript{\emph{\textcolor{white}{#1}}}}
+
+% Fetch env variables
+\usepackage{xparse}
+
+\ExplSyntaxOn
+
+\NewDocumentCommand{\getenv}{om}
+{
+  \sys_get_shell:nnN{ kpsewhich ~ --var-value ~ #2 }{}#1
+}
+
+\ExplSyntaxOff
